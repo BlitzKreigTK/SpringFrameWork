@@ -1,19 +1,32 @@
 package com.learning.learnspringboot.beans;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity(name = "COURSES")
 public class Courses {
-	private int id;
+	@Id
+	@GeneratedValue // Starts id by 1
+	private int ID;
+	@Column(name = "NAME")
 	private String name;
+	@Column(name = "AUTHOR")
 	private String author;
+
+	public Courses() {
+	}
 
 	public Courses(int id, String name, String author) {
 		super();
-		this.id = id;
+		this.ID = id;
 		this.name = name;
 		this.author = author;
 	}
 
 	public int getId() {
-		return id;
+		return ID;
 	}
 
 	public String getName() {
@@ -26,7 +39,7 @@ public class Courses {
 
 	@Override
 	public String toString() {
-		return "Courses [id=" + id + ", name=" + name + ", author=" + author + "]";
+		return "Courses [id=" + ID + ", name=" + name + ", author=" + author + "]";
 	}
 
 }
